@@ -1,8 +1,8 @@
 <template>
 
   <div>
-    <form name="register" autocomplete="off">
-      <p>Create an account</p>
+    <form name="login">
+      <p>Sign in</p>
       <label>Email</label>
       <input
         type="email"
@@ -15,10 +15,10 @@
         v-model="password" />
       <div class="error" v-html="error" />
       <button
-        @click="register">
-        Sign Up
+        @click="login">
+        Sign In
       </button>
-      <router-link to="login">Back to login</router-link>
+      <router-link to="register">Create an account</router-link>
     </form>
   </div>
 
@@ -37,9 +37,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        const response = AuthenticationService.register({
+        const response = AuthenticationService.login({
           email: this.email,
           password: this.password
         })
