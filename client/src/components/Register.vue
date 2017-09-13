@@ -39,7 +39,7 @@ export default {
   methods: {
     async register () {
       try {
-        const response = AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
         })

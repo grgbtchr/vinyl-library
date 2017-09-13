@@ -18,7 +18,10 @@
         @click="login">
         Sign In
       </button>
-      <router-link to="register">Create an account</router-link>
+      <router-link
+        to="register">
+        Create an account
+      </router-link>
     </form>
   </div>
 
@@ -39,7 +42,7 @@ export default {
   methods: {
     async login () {
       try {
-        const response = AuthenticationService.login({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })

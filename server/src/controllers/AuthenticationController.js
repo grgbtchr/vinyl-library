@@ -13,8 +13,12 @@ module.exports = {
   async register (req, res) {
     try {
       const user = await User.create(req.body)
-      res.send(user.toJSON())
-    } catch (err) {
+      const userJson = user.toJSON()
+      res.send({
+        user: userJson,
+        token: jwtSignUser(userJson)
+      })
+    } catch (error) {
       res.status(400).send({
         error: 'This email is already in use.'
       })
@@ -28,6 +32,7 @@ module.exports = {
           email: email
         }
       })
+
       if (!user) {
         return res.status(403).send({
           error: 'Invalid email'
@@ -47,7 +52,7 @@ module.exports = {
         user: userJson,
         token: jwtSignUser(userJson)
       })
-    } catch (err) {
+    } catch (error) {
       return res.status(500).send({
         error: 'Oops! Something went wrong'
       })
