@@ -1,28 +1,30 @@
 <template>
 
   <div>
-    <form name="login">
-      <p>Sign in</p>
-      <label>Email</label>
-      <input
-        type="email"
-        name="email"
-        v-model="email" />
-      <label>Password</label>
-      <input
-        type="password"
-        name="password"
-        v-model="password" />
-      <div class="error" v-html="error" />
-      <button
-        @click="login">
-        Sign In
-      </button>
-      <router-link
-        to="register">
-        Create an account
-      </router-link>
-    </form>
+    <div class="wrapper">
+      <form name="login">
+        <p>Sign in</p>
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          v-model="email" />
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          v-model="password" />
+        <div class="error" v-html="error"></div>
+        <button
+          type="button"
+          @click="login">
+          Sign In
+        </button>
+      </form>
+      <div class="reg">
+        <a href="#/register">Create an account</a>
+      </div>
+    </div>
   </div>
 
 </template>
@@ -59,7 +61,7 @@ export default {
 
 <style scoped>
 
-form {
+.wrapper {
   width: 380px;
   margin: 180px auto 0;
 }
@@ -118,6 +120,14 @@ button {
   color: white;
   border: 0;
   border-radius: 2px;
+}
+
+button:hover {
+  background: #2f4559;
+}
+
+.reg {
+  margin-top: 24px;
 }
 
 </style>

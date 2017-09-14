@@ -9,6 +9,13 @@
       Sign in/Register
     </router-link>
 
+    <router-link
+      v-if="$store.state.isUserLoggedIn"
+      to="/"
+      @click.native="logout">
+      Sign out
+    </router-link>
+
     <ul>
       <li>Browse</li>
     </ul>
@@ -22,6 +29,10 @@
     methods: {
       navigateTo (route) {
         this.$router.push(route)
+      },
+      logout () {
+        this.$store.dispatch('setToken', null)
+        this.$store.dispatch('setUser', null)
       }
     }
   }

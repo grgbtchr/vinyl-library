@@ -76,8 +76,20 @@ a {
   text-decoration: none;
 }
 
+a:active {
+  color: #22313F;
+}
+
+a:visited {
+  color: #22313F;;
+}
+
 button:hover {
   cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
 }
 
 #app {
