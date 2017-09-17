@@ -17,7 +17,7 @@
     </router-link>
 
     <ul>
-      <li>Browse</li>
+      <li @click="navigateTo({name: 'releases'})">Browse</li>
     </ul>
   </header>
 
@@ -48,6 +48,7 @@ header {
   width: 100%;
   height: 100px;
   background: #22313F;
+  z-index: 99;
 }
 
 h2 {
@@ -75,6 +76,10 @@ ul {
   color: #d4d4d4;
   font-size: 18px;
   font-weight: 800;
+}
+
+ul li {
+  cursor: pointer;
 }
 
 </style>
