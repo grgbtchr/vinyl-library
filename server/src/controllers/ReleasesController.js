@@ -13,6 +13,16 @@ module.exports = {
       })
     }
   },
+  async show (req, res) {
+    try {
+      const release = await Release.findById(req.params.releaseId)
+      res.send(release)
+    } catch (error) {
+      res.status(500).send({
+        error: 'Oops! Something went wrong'
+      })
+    }
+  },
   async post (req, res) {
     try {
       const release = await Release.create(req.body)

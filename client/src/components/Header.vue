@@ -47,7 +47,8 @@ header {
   top: 0;
   width: 100%;
   height: 100px;
-  background: #22313F;
+  color: #e0e2e2;
+  background: black;
   z-index: 99;
 }
 
@@ -58,13 +59,12 @@ h2 {
   bottom: 20px;
   font-size: 26px;
   font-weight: 800;
-  color: #d4d4d4;
   cursor: pointer;
 }
 
 a {
   position: absolute;
-  color: #d4d4d4;
+  color: #e0e2e2;
   right: 40px;
   top: 20px;
 }
@@ -73,7 +73,6 @@ ul {
   position: absolute;
   right: 40px;
   bottom: 20px;
-  color: #d4d4d4;
   font-size: 18px;
   font-weight: 800;
 }

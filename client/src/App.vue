@@ -92,6 +92,10 @@ button:focus {
   outline: 0;
 }
 
+html {
+  background: #212121;
+}
+
 #app {
   font-family: 'Franklin Gothic', Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;

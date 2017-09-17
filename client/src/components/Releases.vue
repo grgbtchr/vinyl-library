@@ -55,8 +55,9 @@ export default {
 <style scoped>
 
 .subhead {
-  padding: 60px 0 20px;
+  padding: 20px 0;
   position: relative;
+  background: #1b1b1b;
 }
 
 .subhead h1 {
@@ -69,6 +70,7 @@ export default {
 .subhead button {
   display: inline-block;
   margin-left: 20px;
+  vertical-align: bottom;
 }
 
 button {
@@ -78,27 +80,27 @@ button {
   font-size: 15px;
   font-family: 'Franklin Gothic';
   letter-spacing: 0.02em;
-  background: #22313F;
-  color: #d4d4d4;
+  background: #e0e2e2;
+  color: #black;
   border: 0;
   border-radius: 2px;
 }
 
 .wrapper {
   margin-top: 100px;
-  height: 100vh;
-  background: #3b4044;
 }
 
 .browse {
   display: flex;
-  margin: 10px 30px;
+  margin: 20px 30px;
 }
 
 .release {
   width: 20%;
   background: white;
   margin: 0 10px 20px;
+  color: black;
+  background: #e0e2e2;
 }
 
 .release .info {
@@ -130,14 +132,14 @@ button {
 
 .genre {
   position: absolute;
-  bottom: 5px;
-  left: 5px;
+  bottom: 10px;
+  left: 10px;
 }
 
 .format {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 10px;
+  right: 10px;
 }
 
 </style>
