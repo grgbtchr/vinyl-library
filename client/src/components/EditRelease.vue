@@ -46,14 +46,19 @@
       </div>
       <label>Tracklist</label>
       <div id="tracklist">
-        <div>
+        <div v-for="index in release.tracks">
           <input type="number" min="0" v-model="release.tracks.key" required/>
           <input type="text" v-model="release.tracks[key]" required/>
         </div>
       </div>
       <button type="button" @click="addSong">Add Track</button>
     </form>
-    <button id="submit" type="button" @click="create">Submit Release</button>
+    <button
+      id="submit"
+      type="button"
+      @click="save">
+      Save Changes
+    </button>
     <div class="error">{{error}}</div>
   </div>
 </template>
@@ -89,7 +94,7 @@ export default {
       div.appendChild(input)
       document.getElementById('tracklist').appendChild(div)
     },
-    async create () {
+    async save () {
       const areAllFieldsFilledIn = Object
         .keys(this.release)
         .every(key => !!this.release[key])
@@ -98,14 +103,26 @@ export default {
         return
       }
 
+      const releaseId = this.$store.state.route.params.releaseId
       try {
-        await ReleasesService.post(this.release)
+        await ReleasesService.put(this.release)
         this.$router.push({
-          name: 'releases'
+          name: 'release',
+          params: {
+            releaseId: releaseId
+          }
         })
       } catch (err) {
         console.log(err)
       }
+    }
+  },
+  async mounted () {
+    try {
+      const releaseId = this.$store.state.route.params.releaseId
+      this.release = (await ReleasesService.show(releaseId)).data
+    } catch (err) {
+      console.log(err)
     }
   }
 }

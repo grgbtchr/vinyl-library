@@ -1,21 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
-import Releases from '@/components/Releases'
+import Releases from '@/components/Releases/Index'
 import AddRelease from '@/components/AddRelease'
 import ViewRelease from '@/components/ViewRelease'
+import EditRelease from '@/components/EditRelease'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'root',
-      component: Hello
-    },
     {
       path: '/register',
       name: 'register',
@@ -40,6 +35,15 @@ export default new Router({
       path: '/releases/:releaseId',
       name: 'release',
       component: ViewRelease
+    },
+    {
+      path: '/releases/:releaseId/edit',
+      name: 'edit-release',
+      component: EditRelease
+    },
+    {
+      path: '*',
+      redirect: 'releases'
     }
   ]
 })

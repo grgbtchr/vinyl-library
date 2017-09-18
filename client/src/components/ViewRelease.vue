@@ -16,6 +16,18 @@
     <div class="releaseinfo">
       <div class="format">
         <p>{{release.format}}</p>
+        <router-link
+          tag="button"
+          :to="{
+            name: 'edit-release',
+            params () {
+              return {
+                releaseId: release.id
+              }
+            }
+          }">
+          Edit
+        </router-link>
       </div>
       <div class="tracklist">
         <ul>
@@ -121,14 +133,30 @@ export default {
 }
 
 .format {
+  position: relative;
   color: black;
   padding: 16px;
   background: #e0e2e2;
 }
 
 .format p {
-  font-size: 22px;
+  display: inline-block;
+  font-size: 28px;
   font-weight: bold;
+}
+
+.format button {
+  position: absolute;
+  height: 28px;
+  right: 16px;
+  padding: 0 14px;
+  font-size: 15px;
+  font-family: 'Franklin Gothic';
+  letter-spacing: 0.02em;
+  background: black;
+  color: #e0e2e2;
+  border: 0;
+  border-radius: 2px;
 }
 
 </style>

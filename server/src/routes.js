@@ -16,6 +16,9 @@ module.exports = (app) => {
   app.get('/releases/:releaseId',
     ReleasesController.show)
 
+  app.put('/releases/:releaseId',
+    ReleasesController.put)
+
   app.post('/releases',
     ReleasesController.post)
 }

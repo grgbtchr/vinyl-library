@@ -1,7 +1,13 @@
 <template>
 
   <header>
-    <h2 @click="navigateTo({name: 'root'})">Beatcrates</h2>
+    <router-link
+      tag="h2"
+      :to="{
+        name: 'releases'
+      }">
+      crate surfer
+    </router-link>
 
     <router-link
       v-if="!$store.state.isUserLoggedIn"
@@ -11,13 +17,19 @@
 
     <router-link
       v-if="$store.state.isUserLoggedIn"
-      to="/"
+      to="releases"
       @click.native="logout">
       Sign out
     </router-link>
 
     <ul>
-      <li @click="navigateTo({name: 'releases'})">Browse</li>
+      <router-link
+        tag="li"
+        :to="{
+          name: 'releases'
+        }">
+        Browse
+      </router-link>
     </ul>
   </header>
 
@@ -27,9 +39,6 @@
 <script>
   export default {
     methods: {
-      navigateTo (route) {
-        this.$router.push(route)
-      },
       logout () {
         this.$store.dispatch('setToken', null)
         this.$store.dispatch('setUser', null)
