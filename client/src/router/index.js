@@ -4,7 +4,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Releases from '@/components/Releases/Index'
 import AddRelease from '@/components/AddRelease'
-import ViewRelease from '@/components/ViewRelease'
+import ViewRelease from '@/components/ViewRelease/Index'
 import EditRelease from '@/components/EditRelease'
 
 Vue.use(Router)

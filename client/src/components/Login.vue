@@ -51,7 +51,7 @@ export default {
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
         this.$router.push({
-          name: 'songs'
+          name: 'releases'
         })
       } catch (error) {
         this.error = error.response.data.error
@@ -71,13 +71,15 @@ export default {
 
 p {
   font-family: 'Franklin Gothic';
+  color: #d4d4d4;
   padding-bottom: 10px;
   margin-bottom: 14px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #d4d4d4;
 }
 
 label {
   display: block;
+  color: #d4d4d4;
   font-family: 'Franklin Gothic';
   font-size: 15px;
   margin-bottom: 4px;
@@ -87,10 +89,12 @@ input {
   width: 100%;
   height: 40px;
   padding: 5px;
+  color: #199096;
   font-family: 'Franklin Gothic';
   font-size: 18px;
   margin-bottom: 14px;
-  border: 1px solid black;
+  background: none;
+  border: 1px solid #d4d4d4;
   border-radius: 2px;
 }
 
@@ -119,18 +123,23 @@ button {
   font-size: 18px;
   font-family: 'Franklin Gothic';
   letter-spacing: 0.02em;
-  background: #22313F;
-  color: white;
+  background: #d4d4d4;
+  color: black;
   border: 0;
   border-radius: 2px;
 }
 
 button:hover {
-  background: #2f4559;
+  color: #d4d4d4;
+  background: #199096;
 }
 
 .reg {
   margin-top: 24px;
+}
+
+.reg a {
+  color: #d4d4d4;
 }
 
 </style>

@@ -6,7 +6,7 @@
       :to="{
         name: 'releases'
       }">
-      crate surfer
+      crates
     </router-link>
 
     <router-link

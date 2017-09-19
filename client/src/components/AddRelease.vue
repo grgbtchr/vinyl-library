@@ -47,8 +47,8 @@
       <label>Tracklist</label>
       <div id="tracklist">
         <div>
-          <input type="number" min="0" v-model="release.tracks.key" required/>
-          <input type="text" v-model="release.tracks[key]" required/>
+          <input type="number" min="0" required/>
+          <input type="text" required/>
         </div>
       </div>
       <button type="button" @click="addSong">Add Track</button>
@@ -90,6 +90,16 @@ export default {
       document.getElementById('tracklist').appendChild(div)
     },
     async create () {
+      const tracks = {}
+      const tracklist = Array.from(document.getElementById('tracklist').children)
+
+      tracklist.forEach(track => {
+        const index = track.querySelector('input[type=number]').value
+        const name = track.querySelector('input[type=text]').value
+        tracks[index] = name
+      })
+      this.release.tracks = tracks
+
       const areAllFieldsFilledIn = Object
         .keys(this.release)
         .every(key => !!this.release[key])
@@ -129,6 +139,7 @@ form div {
 
 label {
   display: block;
+  color: #d4d4d4;
   font-size: 15px;
   margin-bottom: 4px;
 }
@@ -138,7 +149,9 @@ input {
   height: 40px;
   font-family: 'Franklin Gothic';
   font-size: 18px;
-  border: 1px solid black;
+  color: #199096;
+  background: none;
+  border: 1px solid #d4d4d4;
   border-radius: 2px;
 }
 
@@ -147,7 +160,8 @@ input {
   height: 30px;
   font-family: 'Franklin Gothic';
   font-size: 16px;
-  border: 1px solid black;
+  background: none;
+  border: 1px solid #d4d4d4;
   border-radius: 2px;
 }
 
@@ -200,10 +214,11 @@ select {
   font-family: 'Franklin Gothic';
   font-size: 18px;
   padding: 5px;
-  border: 1px solid black;
+  color: #d4d4d4;
+  border: 1px solid #d4d4d4;
   border-radius: 2px;
   height: 40px;
-  background: white;
+  background: none;
 }
 
 select:focus {
@@ -217,8 +232,8 @@ button {
   font-size: 15px;
   font-family: 'Franklin Gothic';
   letter-spacing: 0.02em;
-  background: #22313F;
-  color: white;
+  background: #d4d4d4;
+  color: black;
   border: 0;
   border-radius: 2px;
 }
@@ -230,18 +245,20 @@ button {
   font-size: 18px;
   font-family: 'Franklin Gothic';
   letter-spacing: 0.02em;
-  background: #22313F;
-  color: white;
+  background: #d4d4d4;
+  color: black;
   border: 0;
   border-radius: 2px;
 }
 
 #submit:hover {
-  background: #2f4559;
+  color: #d4d4d4;
+  background: #199096;
 }
 
 button:hover {
-  background: #2f4559;
+  color: #d4d4d4;
+  background: #199096;
 }
 
 .error {

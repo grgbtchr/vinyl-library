@@ -7,10 +7,11 @@
       :to="{
         name: 'add-release'
       }">
-      Add Release
+      + Add Release
     </router-link>
     <input
     type="text"
+    placeholder="Search..."
     v-model="search" />
 
   </div>
@@ -64,25 +65,51 @@ export default {
   font-size: 26px;
   padding-left: 40px;
   color: #d4d4d4;
-}
-
-.subhead button {
-  display: inline-block;
-  margin-left: 20px;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 button {
   height: 30px;
-  padding: 0 14px;
-  margin: 0;
+  padding: 0 10px;
+  margin: 0 0 0 30px;
   font-size: 15px;
   font-family: 'Franklin Gothic';
-  letter-spacing: 0.02em;
-  background: #e0e2e2;
-  color: black;
-  border: 0;
+  background: none;
+  color: #d4d4d4;
+  border: 1px solid #199096;;
   border-radius: 2px;
+}
+
+input {
+  height: 30px;
+  width: 300px;
+  padding: 5px;
+  margin-right: 40px;
+  color: #199096;
+  font-family: 'Franklin Gothic';
+  font-size: 18px;
+  background: none;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  float: right;
+}
+
+input:focus {
+  outline: 0;
+  border: 1px solid #199096;
+}
+
+input:placeholder {
+  font-family: 'Franklin Gothic';
+  font-size: 18px;
+}
+
+input:not(:empty) {
+  border: 1px solid #199096;
+}
+
+input:before {
+  content: "\f002";
 }
 
 </style>

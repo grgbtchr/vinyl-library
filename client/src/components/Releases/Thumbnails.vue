@@ -65,8 +65,8 @@ export default {
   display: inline-block;
   background: white;
   margin: 0 10px 20px;
-  color: black;
-  background: #e0e2e2;
+  color: #d4d4d4;
+  background: black;
 }
 
 .release .info {
@@ -80,30 +80,36 @@ export default {
 }
 
 .release h2 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 800;
   letter-spacing: 0.02em;
-  line-height: 20px;
+  line-height: 18px;
 }
 
 .release h3 {
-  font-size: 18px;
+  font-size: 16px;
+  color: #199096;
   margin-top: 4px;
+  line-height: 18px;
 }
 
 .release h4 {
+  font-size: 14px;
   text-transform: uppercase;
   margin-top: 6px;
 }
 
 .genre {
   position: absolute;
+  font-size: 12px;
+  text-transform: uppercase;
   bottom: 10px;
   left: 10px;
 }
 
 .format {
   position: absolute;
+  font-size: 12px;
   bottom: 10px;
   right: 10px;
 }
