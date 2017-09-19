@@ -6,6 +6,7 @@ import Releases from '@/components/Releases/Index'
 import AddRelease from '@/components/AddRelease'
 import ViewRelease from '@/components/ViewRelease/Index'
 import EditRelease from '@/components/EditRelease'
+import Account from '@/components/Account/Index'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/releases/:releaseId/edit',
       name: 'edit-release',
       component: EditRelease
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: Account
     },
     {
       path: '*',

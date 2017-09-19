@@ -2,6 +2,7 @@ const AuthenticationController = require('./controllers/AuthenticationController
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 const ReleasesController = require('./controllers/ReleasesController')
 const BookmarksController = require('./controllers/BookmarksController')
+const RecentsController = require('./controllers/RecentsController')
 
 module.exports = (app) => {
   app.post('/register',
@@ -10,6 +11,7 @@ module.exports = (app) => {
 
   app.post('/login',
     AuthenticationController.login)
+
 
   app.get('/releases',
     ReleasesController.index)
@@ -23,6 +25,7 @@ module.exports = (app) => {
   app.post('/releases',
     ReleasesController.post)
 
+
   app.get('/bookmarks',
     BookmarksController.index)
 
@@ -31,4 +34,11 @@ module.exports = (app) => {
 
   app.delete('/bookmarks/:bookmarkId',
     BookmarksController.delete)
+
+
+  app.get('/recents',
+    RecentsController.index)
+
+  app.post('/recents',
+    RecentsController.post)
 }

@@ -9,18 +9,29 @@
       crates
     </router-link>
 
-    <router-link
-      v-if="!$store.state.isUserLoggedIn"
-      to="login">
-      Sign in/Register
-    </router-link>
+    <div class="account">
 
-    <router-link
-      v-if="$store.state.isUserLoggedIn"
-      to="releases"
-      @click.native="logout">
-      Sign out
-    </router-link>
+      <router-link
+        id="myAccount"
+        v-if="$store.state.isUserLoggedIn"
+        to="account">
+        My Account
+      </router-link>
+
+      <router-link
+        v-if="!$store.state.isUserLoggedIn"
+        to="login">
+        Sign in/Register
+      </router-link>
+
+      <router-link
+        v-if="$store.state.isUserLoggedIn"
+        to="releases"
+        @click.native="logout">
+        Sign out
+      </router-link>
+
+    </div>
 
     <ul>
       <router-link
@@ -56,7 +67,7 @@ header {
   top: 0;
   width: 100%;
   height: 100px;
-  color: #e0e2e2;
+  color: #d4d4d4;
   background: black;
   z-index: 99;
 }
@@ -71,11 +82,17 @@ h2 {
   cursor: pointer;
 }
 
-a {
+.account {
   position: absolute;
   color: #e0e2e2;
   right: 40px;
   top: 20px;
+}
+
+.account a {
+  font-size: 15px;
+  color: #d4d4d4;
+  margin-left: 10px;
 }
 
 ul {

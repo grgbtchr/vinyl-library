@@ -5,13 +5,13 @@
     <button
       id="favourite"
       v-if="!bookmark"
-      @click="addToWantlist">
+      @click="addToWishlist">
       Favourite
     </button>
     <button
       id="favourite"
       v-if="bookmark"
-      @click="removeFromWantlist">
+      @click="removeFromWishlist">
       Unfavourite
     </button>
     <router-link
@@ -46,7 +46,8 @@ export default {
   },
   computed: {
     ...mapState([
-      'isUserLoggedIn'
+      'isUserLoggedIn',
+      'user'
     ])
   },
   watch: {
@@ -56,27 +57,30 @@ export default {
       }
 
       try {
-        this.bookmark = (await BookmarksService.index({
+        const bookmarks = (await BookmarksService.index({
           releaseId: this.release.id,
-          userId: this.$store.state.user.id
+          userId: this.user.id
         })).data
+        if (bookmarks.length) {
+          this.bookmark = bookmarks[0]
+        }
       } catch (err) {
         console.log(err)
       }
     }
   },
   methods: {
-    async addToWantlist () {
+    async addToWishlist () {
       try {
         this.bookmark = (await BookmarksService.post({
           releaseId: this.release.id,
-          userId: this.$store.state.user.id
+          userId: this.user.id
         })).data
       } catch (err) {
         console.log(err)
       }
     },
-    async removeFromWantlist () {
+    async removeFromWishlist () {
       try {
         await BookmarksService.delete(this.bookmark.id)
         this.bookmark = null

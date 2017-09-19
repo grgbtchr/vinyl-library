@@ -75,8 +75,8 @@ button {
   font-size: 15px;
   font-family: 'Franklin Gothic';
   background: none;
-  color: #d4d4d4;
-  border: 1px solid #199096;;
+  color: #199096;
+  border: 1px solid #199096;
   border-radius: 2px;
 }
 
