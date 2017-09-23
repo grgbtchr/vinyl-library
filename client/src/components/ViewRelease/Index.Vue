@@ -18,10 +18,12 @@
 
 
 <script>
+import {mapState} from 'vuex'
 import ReleaseHead from './ReleaseHead'
 import Format from './Format'
 import ReleaseInfo from './ReleaseInfo'
 import ReleasesService from '@/services/ReleasesService'
+import RecentlyViewedService from '@/services/RecentlyViewedService'
 
 export default {
   components: {
@@ -34,9 +36,22 @@ export default {
       release: {}
     }
   },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user',
+      'route'
+    ])
+  },
   async mounted () {
-    const releaseId = this.$store.state.route.params.releaseId
+    const releaseId = this.route.params.releaseId
     this.release = (await ReleasesService.show(releaseId)).data
+
+    if (this.isUserLoggedIn) {
+      RecentlyViewedService.post({
+        releaseId: releaseId
+      })
+    }
   }
 }
 

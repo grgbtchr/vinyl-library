@@ -9,7 +9,7 @@ const _ = require('lodash')
 module.exports = {
   async index (req, res) {
     try {
-      const {userId} = req.query
+      const userId = req.user.id
       const recents = await Recent.findAll({
         where: {
           UserId: userId
@@ -26,7 +26,7 @@ module.exports = {
           recent
         ))
 
-      res.send(recents)
+      res.send(_.uniqBy(recents, recent => recent.ReleaseId))
     } catch (err) {
       res.status(500).send({
         error: 'Oops! Something went wrong'
@@ -35,7 +35,8 @@ module.exports = {
   },
   async post (req, res) {
     try {
-      const {releaseId, userId} = req.body
+      const userId = req.user.id
+      const {releaseId} = req.body
       const recent = await Recent.create({
         ReleaseId: releaseId,
         UserId: userId

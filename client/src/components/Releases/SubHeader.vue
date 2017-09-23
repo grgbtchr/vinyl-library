@@ -55,6 +55,7 @@ export default {
 <style scoped>
 
 .subhead {
+  margin-top: 100px;
   padding: 20px 0;
   position: relative;
   background: #1b1b1b;
@@ -89,7 +90,7 @@ input {
   font-family: 'Franklin Gothic';
   font-size: 18px;
   background: none;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #199096;
   border-radius: 2px;
   float: right;
 }

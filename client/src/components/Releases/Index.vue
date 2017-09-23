@@ -1,9 +1,14 @@
 <template>
-  <div class="wrapper">
-    
-    <sub-header />
-    <thumbnails />
 
+  <div>
+    <sub-header />
+    
+    <div class="wrapper">
+
+      <recently-viewed />
+      <thumbnails />
+
+    </div>
   </div>
 </template>
 
@@ -11,11 +16,13 @@
 <script>
 import Thumbnails from './Thumbnails'
 import SubHeader from './SubHeader'
+import RecentlyViewed from '@/components/RecentlyViewed'
 
 export default {
   components: {
     Thumbnails,
-    SubHeader
+    SubHeader,
+    RecentlyViewed
   }
 }
 
@@ -25,7 +32,7 @@ export default {
 <style scoped>
 
 .wrapper {
-  margin-top: 100px;
+  margin: 20px 40px;
 }
 
 </style>

@@ -58,8 +58,7 @@ export default {
 
       try {
         const bookmarks = (await BookmarksService.index({
-          releaseId: this.release.id,
-          userId: this.user.id
+          releaseId: this.release.id
         })).data
         if (bookmarks.length) {
           this.bookmark = bookmarks[0]
@@ -73,8 +72,7 @@ export default {
     async addToWishlist () {
       try {
         this.bookmark = (await BookmarksService.post({
-          releaseId: this.release.id,
-          userId: this.user.id
+          releaseId: this.release.id
         })).data
       } catch (err) {
         console.log(err)

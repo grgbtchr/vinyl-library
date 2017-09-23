@@ -1,7 +1,7 @@
 <template>
 
   <div class="wrapper">
-    
+
     <wishlist />
 
   </div>
@@ -23,7 +23,7 @@ export default {
 <style scoped>
 
 .wrapper {
-  margin: 120px 30px 20px;
+  margin: 120px 40px 20px;
 }
 
 </style>

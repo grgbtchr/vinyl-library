@@ -57,14 +57,14 @@ export default {
 .browse {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 30px;
+  margin: 0 -5px;
 }
 
 .release {
-  width: 20%;
+  width: calc(25% - 10px);
   display: inline-block;
   background: white;
-  margin: 0 10px 20px;
+  margin: 0 5px 20px;
   color: #d4d4d4;
   background: black;
 }
